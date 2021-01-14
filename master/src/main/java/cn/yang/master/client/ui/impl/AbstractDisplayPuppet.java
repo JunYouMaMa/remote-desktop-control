@@ -32,6 +32,7 @@ public abstract class AbstractDisplayPuppet implements IDisplayPuppet {
      * 傀儡屏幕
      */
     private CanvasPanel imageJpanel;
+    private JScrollPane scrollPanel;
 
     AbstractDisplayPuppet(String puppetName){
         this.puppetName=puppetName;
@@ -62,7 +63,10 @@ public abstract class AbstractDisplayPuppet implements IDisplayPuppet {
      */
     private void initBody(){
         imageJpanel=new CanvasPanel();
-        jFrame.add(imageJpanel);
+        scrollPanel=new JScrollPane(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scrollPanel.setViewportView(imageJpanel);
+
+        jFrame.add(scrollPanel);
         final KeyBoardListener keyBoardListener = new KeyBoardListener(AbstractDisplayPuppet.this);
         final MouseListener mouseListener = new MouseListener(AbstractDisplayPuppet.this);
         jFrame.addKeyListener(keyBoardListener);
@@ -119,6 +123,7 @@ public abstract class AbstractDisplayPuppet implements IDisplayPuppet {
     public JFrame getjFrame() {
         return jFrame;
     }
+    public JPanel getImagePanel() {return this.imageJpanel;}
 
 
     /**

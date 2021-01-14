@@ -66,6 +66,7 @@ public class PuppetScreen extends AbstractDisplayPuppet implements ActionListene
     @Override
     protected void paint(Graphics g) {
         if(image!=null){
+
             g.drawImage(image,0,0,null);
         }
     }
@@ -73,6 +74,8 @@ public class PuppetScreen extends AbstractDisplayPuppet implements ActionListene
     @Override
     void generateImage(byte[] bytes) {
         this.image= ImageUtils.getImageFromByteArray(bytes);
+        this.getImagePanel().setPreferredSize(new Dimension(this.image.getWidth(),this.image.getHeight()));
+        this.getImagePanel().revalidate();
     }
 
     //滑动条

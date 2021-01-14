@@ -12,10 +12,10 @@ task.check.interval=1000
 
 #服务器IP地址
 #server.ip=144.34.157.127
-server.ip=192.168.124.1
+server.ip=10.1.71.52
 
 #服务器端口号
-server.port=1234
+server.port=9090
 
 #接收到服务器错误消息超过这个阀值就断开连接
 error.count=5
